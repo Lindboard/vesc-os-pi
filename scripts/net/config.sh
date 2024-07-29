@@ -2,15 +2,18 @@
 
 set -e
 
-cp -R ${BR2_EXTERNAL_VESC_OS_PATH}/scripts/net/S01ipconf ${TARGET_DIR}/etc/init.d/
+# Create network configuration file
+cat << EOF > ${TARGET_DIR}/etc/network/interfaces
+auto lo
+iface lo inet loopback
 
-if ! grep -qE '^PermitRootLogin' "${TARGET_DIR}/etc/ssh/sshd_config"; then
-cat << __EOF__ >> "${TARGET_DIR}/etc/ssh/sshd_config"
+auto eth0
+iface eth0 inet static
+    address 10.0.0.240
+    netmask 255.255.255.0
+    gateway 10.0.0.1
+EOF
 
-# Permit root login
-PermitRootLogin yes
-
-__EOF__
-fi
+echo "nameserver 8.8.8.8" > ${TARGET_DIR}/etc/resolv.conf
 
 exit $?

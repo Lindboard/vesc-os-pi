@@ -51,6 +51,13 @@ vesc_rpi4_mobile_defconfig
 vesc_rpi4_full_defconfig
 ```
 
+### LIND
+
+```
+make BR2_EXTERNAL=../ vesc_rpi4_lind_defconfig
+make BR2_EXTERNAL=../ BR2_JLEVEL=16
+```
+
 ## Write to SD Card
 
 The generated image will be in `buildroot/output/images/sdcard.img`. To write the image to the SD card, use:
