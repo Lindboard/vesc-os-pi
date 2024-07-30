@@ -1,0 +1,5 @@
+config BR2_PACKAGE_OPENOCD_CUSTOM
+    bool "openocd-custom"
+    help
+      OpenOCD: Open On-Chip Debugger
+      Enable system file GPIO, BCM2835 GPIO, and Linux GPIO daemon support.
