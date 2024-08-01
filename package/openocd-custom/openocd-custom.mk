@@ -20,7 +20,11 @@ OPENOCD_CUSTOM_CONF_OPTS = \
 	--disable-werror \
 	--enable-sysfsgpio \
     --enable-bcm2835gpio \
-    --enable-linuxgpiod
+    --enable-linuxgpiod \
+	--enable-stm32f4x \
+	--enable-stm32g4x \
+	--enable-stm32l4x \
+	--enable-swd
 
 OPENOCD_CUSTOM_DEPENDENCIES = \
 	host-pkgconf \
